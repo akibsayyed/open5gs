@@ -198,7 +198,7 @@ static int pcrf_rx_aar_cb( struct msg **msg, struct avp *avp,
 
     if (!gx_sid) {
         ogs_error("No Gx Session");
-        goto out;
+   //     goto out;
     }
 
     ret = fd_msg_browse(qry, MSG_BRW_FIRST_CHILD, &avpch1, NULL);
@@ -342,14 +342,14 @@ static int pcrf_rx_aar_cb( struct msg **msg, struct avp *avp,
         result_code = rx_message.result_code;
         if (result_code != ER_DIAMETER_SUCCESS) {
             ogs_error("pcrf_gx_send_rar() failed");
-            goto out;
+    //        goto out;
         }
     }
 
     /* Store Gx Session-Id in this session */
-    if (!sess_data->gx_sid)
-        sess_data->gx_sid = (os0_t)ogs_strdup((char *)gx_sid);
-    ogs_assert(sess_data->gx_sid);
+   // if (!sess_data->gx_sid)
+    //    sess_data->gx_sid = (os0_t)ogs_strdup((char *)gx_sid);
+ ///   ogs_assert(sess_data->gx_sid);
 
     /* Set IP-Can-Type */
     ret = fd_msg_avp_new(ogs_diam_rx_ip_can_type, 0, &avp);
