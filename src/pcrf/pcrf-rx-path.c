@@ -336,7 +336,7 @@ static int pcrf_rx_aar_cb( struct msg **msg, struct avp *avp,
         fd_msg_browse(avpch1, MSG_BRW_NEXT, &avpch1, NULL);
     }
 
-    /* Send Re-Auth Request */
+    /* Send Re-Auth Request 
     rv = pcrf_gx_send_rar(gx_sid, sess_data->rx_sid, &rx_message);
     if (rv != OGS_OK) {
         result_code = rx_message.result_code;
@@ -345,7 +345,7 @@ static int pcrf_rx_aar_cb( struct msg **msg, struct avp *avp,
     //        goto out;
         }
     }
-
+*/
     /* Store Gx Session-Id in this session */
    // if (!sess_data->gx_sid)
     //    sess_data->gx_sid = (os0_t)ogs_strdup((char *)gx_sid);
@@ -687,9 +687,9 @@ static int pcrf_rx_str_cb( struct msg **msg, struct avp *avp,
     } else {
         ogs_error("no_Termination-Cause");
     }
-
+/*
     if (sess_data->state != SESSION_ABORTED) {
-        /* Send Re-Auth Request if Abort-Session-Request is not initaited */
+         Send Re-Auth Request if Abort-Session-Request is not initaited 
         rv = pcrf_gx_send_rar(
                 sess_data->gx_sid, sess_data->rx_sid, &rx_message);
         if (rv != OGS_OK) {
@@ -699,7 +699,7 @@ static int pcrf_rx_str_cb( struct msg **msg, struct avp *avp,
                 goto out;
             }
         }
-    }
+    }*/
 
     /* Set the Origin-Host, Origin-Realm, andResult-Code AVPs */
     ret = fd_msg_rescode_set(ans, (char *)"DIAMETER_SUCCESS", NULL, NULL, 1);
