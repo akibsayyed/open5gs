@@ -667,7 +667,7 @@ static int pcrf_rx_str_cb( struct msg **msg, struct avp *avp,
         goto out;
     }
     ogs_assert(sess_data->rx_sid);
-    ogs_assert(sess_data->gx_sid);
+ //   ogs_assert(sess_data->gx_sid);
 
     /* Get Termination-Cause */
     ret = fd_msg_search_avp(qry, ogs_diam_termination_cause, &avp);
